@@ -1,0 +1,28 @@
+[project]
+name = "matmul"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "einops>=0.8.2",
+    "matplotlib>=3.11.1",
+    "numpy>=2.5.1",
+]
+
+[project.optional-dependencies]
+apple = ["torch>=2.4"]
+cuda = ["torch>=2.4"]
+
+[tool.uv]
+conflicts = [
+    [
+        { extra = "apple" },
+        { extra = "cuda" },
+    ],
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu124", extra = "cuda" },
+]

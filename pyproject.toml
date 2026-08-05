@@ -1,0 +1,11 @@
+[tool.ty.environment]
+python = "./.venv"
+
+[tool.uv.workspace]
+members = ["unet-profiling", "matmul"]
+
+# Shared CUDA wheel index for the "cuda" torch extra used by workspace members.
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
