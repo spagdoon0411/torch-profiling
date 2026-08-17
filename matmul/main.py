@@ -106,12 +106,14 @@ def run_benchmark(
 
 def main():
     shapes = [2**n for n in range(13)]
+    dtype = torch.float32
+
     times = []
     flops = []
     bytes_ = []
 
     for shape in shapes:
-        res_meas, res_flops, res_bytes = run_benchmark((shape, shape), torch.float16)
+        res_meas, res_flops, res_bytes = run_benchmark((shape, shape), dtype)
         times.append(res_meas.median)
         flops.append(res_flops)
         bytes_.append(res_bytes)
